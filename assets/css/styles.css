@@ -1,0 +1,138 @@
+/* 1. Design tokens: change these values to adjust the whole site.
+   System fonts keep the site fast and avoid third-party font requests. */
+:root {
+  --paper: #f7f5ee;
+  --ink: #293b31;
+  --muted: #556052;
+  --accent: #344d39;
+  --tint: #eaece1;
+  --line: #c8cebf;
+  --white: #fffdf7;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --page-width: 72rem;
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 5rem;
+  --space-7: 7rem;
+}
+
+/* 2. Base typography and accessible defaults */
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 1rem; line-height: 1.7; }
+h1, h2, h3, p, figure { margin: 0; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
+h1 { font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.07; letter-spacing: -.045em; }
+h2 { font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.17; letter-spacing: -.035em; }
+h3 { font-size: 1.65rem; line-height: 1.3; }
+p { color: var(--muted); }
+p + p { margin-top: var(--space-2); }
+a { color: var(--accent); text-underline-offset: .25em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 3px solid #865020; outline-offset: 5px; border-radius: 2px; }
+svg { display: block; width: 100%; height: auto; }
+::selection { background: #d8dfc8; color: var(--ink); }
+
+/* 3. Shared layout: mobile first, constrained line lengths */
+.container { width: min(calc(100% - 2.5rem), var(--page-width)); margin-inline: auto; }
+.section { padding-block: var(--space-6); }
+.tinted { background: var(--tint); }
+.eyebrow { color: var(--accent); font-size: .73rem; font-weight: 650; letter-spacing: .14em; text-transform: uppercase; margin-bottom: var(--space-3); }
+.lead { font-size: 1.15rem; line-height: 1.75; max-width: 36rem; margin-top: var(--space-3); }
+.quiet { font-size: .85rem; margin-top: var(--space-2); }
+
+/* 4. Links and buttons: anchors navigate; no JavaScript required */
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 1.3rem; min-height: 48px; padding: .85rem 1.3rem; background: var(--accent); color: var(--white); border: 1px solid var(--accent); border-radius: 3px; text-decoration: none; font-size: .9rem; font-weight: 550; line-height: 1.5; }
+.button:hover { background: #253d2b; text-decoration: underline; }
+.text-link { display: inline-block; padding-block: .6rem; font-weight: 550; }
+.skip-link { position: absolute; top: -10rem; left: 1rem; z-index: 10; padding: .75rem 1rem; background: var(--white); }
+.skip-link:focus { top: 1rem; }
+
+/* 5. Header: a wrapping, always-visible menu is usable without scripts */
+.site-header { padding-block: var(--space-3); display: flex; flex-direction: column; gap: var(--space-3); }
+.brand { font-family: var(--serif); font-size: 2rem; line-height: 1.1; letter-spacing: -.06em; text-decoration: none; }
+.brand span { display: block; font-family: var(--sans); font-size: .63rem; line-height: 1.5; letter-spacing: .075em; margin-top: .55rem; }
+nav { display: flex; flex-wrap: wrap; gap: .2rem 1.2rem; }
+nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: .88rem; text-decoration: none; }
+nav a[aria-current='page'] { text-decoration: underline; text-decoration-thickness: 2px; }
+nav a:hover { text-decoration: underline; }
+.draft-note { border-top: 1px solid var(--line); padding-top: .75rem; font-size: .72rem; color: var(--muted); }
+.draft-note span { font-weight: 700; margin-right: .6rem; }
+
+/* 6. Home: editorial sections, a decorative landscape, no card grid */
+.hero { display: grid; gap: var(--space-5); padding-block: var(--space-5) var(--space-6); align-items: center; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-4); }
+.hero-art { position: relative; max-width: 30rem; overflow: hidden; border-radius: 48% 48% 3px 3px; background: #dedfce; }
+.hero-art span { position: absolute; bottom: 1.4rem; left: 0; right: 0; text-align: center; color: var(--white); font-family: var(--serif); font-size: 1rem; }
+.intro { display: grid; gap: var(--space-2); border-top: 1px solid var(--line); }
+.intro h2 { margin-bottom: var(--space-3); }
+.intro p:not(.eyebrow) { max-width: 39rem; }
+.intro .text-link { margin-top: var(--space-3); }
+.topics { display: grid; gap: var(--space-4); margin-top: var(--space-5); }
+.topics article { border-top: 1px solid var(--line); padding-top: var(--space-3); }
+.topic-number { display: block; color: var(--muted); font-size: .8rem; margin-bottom: var(--space-3); }
+.topics h3 { margin-bottom: var(--space-2); }
+.closing { text-align: center; }
+.closing p:not(.eyebrow) { max-width: 39rem; margin: var(--space-3) auto; }
+.closing .button { margin-top: var(--space-4); }
+
+/* 7. Interior pages and explicit editorial placeholders */
+.page-heading { padding-block: var(--space-5); border-bottom: 1px solid var(--line); }
+.split { display: grid; gap: var(--space-4); align-items: start; }
+.split h2 { margin-bottom: var(--space-3); }
+.placeholder { border-left: 2px solid #8d7656; padding: .75rem 1rem; margin-top: var(--space-4); font-size: .9rem; background: #efeadf; color: #584c3b; }
+.image-placeholder { max-width: 30rem; }
+.image-placeholder [role='img'] { display: grid; align-content: center; text-align: center; min-height: 20rem; padding: var(--space-4); background: var(--tint); border: 1px dashed #7c856f; font-family: var(--serif); font-size: 1.6rem; }
+.image-placeholder span, figcaption { font-family: var(--sans); font-size: .8rem; color: var(--muted); }
+figcaption { padding-top: var(--space-2); }
+.reading, .booking { max-width: 49rem; }
+.reading h2, .booking h2 { margin-bottom: var(--space-3); }
+.reflection { margin-block: var(--space-5); padding-block: var(--space-4); border-block: 1px solid var(--line); }
+blockquote { font-family: var(--serif); font-size: 1.8rem; line-height: 1.4; margin: 0 0 var(--space-3); }
+.reflection > p:last-child { font-size: .8rem; }
+.booking-placeholder { background: var(--tint); border: 1px dashed #7c856f; padding: var(--space-4); margin-top: var(--space-4); }
+.booking-placeholder h3 { margin-bottom: var(--space-2); }
+/* Apply this class to the Healthie iframe when the approved embed is added.
+   Verify its height with the real booking flow rather than clipping it. */
+.booking-frame { display: block; width: 100%; min-height: 48rem; border: 0; }
+
+/* Coaching pathways stay open and readable rather than becoming service cards. */
+.section-lead { max-width: 39rem; margin-top: var(--space-3); }
+.pathways { margin-top: var(--space-5); }
+.pathway { display: grid; gap: var(--space-3); padding-block: var(--space-4); border-top: 1px solid var(--line); scroll-margin-top: var(--space-4); }
+#experience { scroll-margin-top: var(--space-4); }
+.coaching-steps { display: grid; gap: var(--space-4) var(--space-5); margin: var(--space-5) 0 0; padding-left: 1.5rem; }
+.coaching-steps li { padding-left: var(--space-1); }
+.coaching-steps li::marker { color: var(--accent); font-weight: 600; }
+.coaching-steps h3 { margin-bottom: var(--space-2); }
+
+/* 8. Footer */
+.site-footer { border-top: 1px solid var(--line); padding-block: var(--space-5) var(--space-3); }
+.footer-main { display: flex; flex-direction: column; gap: var(--space-3); padding-bottom: var(--space-4); }
+.footer-main p { font-size: .88rem; margin-top: var(--space-2); }
+.footer-bottom { border-top: 1px solid var(--line); padding-top: var(--space-3); display: flex; flex-wrap: wrap; gap: .5rem 2rem; justify-content: space-between; }
+.footer-bottom p { font-size: .75rem; margin: 0; }
+
+/* 9. Larger screens: expand the layout only when there is room */
+@media (min-width: 48rem) {
+  .container { width: min(calc(100% - 5rem), var(--page-width)); }
+  .site-header { flex-direction: row; align-items: center; justify-content: space-between; padding-block: var(--space-4); }
+  .hero { grid-template-columns: 1.2fr 1fr; gap: var(--space-5); padding-block: var(--space-6); }
+  .hero-art { justify-self: end; }
+  .intro { grid-template-columns: 1fr 2fr; }
+  .topics { grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+  .audience-topics, .coaching-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pathway { grid-template-columns: 1fr 1.5fr; gap: var(--space-5); }
+  .split { grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+  .page-heading { padding-block: var(--space-6); }
+  .footer-main { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+@media (min-width: 68rem) {
+  .section { padding-block: var(--space-7); }
+  nav { gap: 2rem; }
+  .hero { gap: var(--space-6); }
+}
+/* No animation or smooth scrolling: reduced-motion preferences work by default. */
