@@ -98,8 +98,7 @@ blockquote { font-family: var(--serif); font-size: 1.8rem; line-height: 1.4; mar
 .reflection > p:last-child { font-size: .8rem; }
 .booking-placeholder { background: var(--tint); border: 1px dashed #7c856f; padding: var(--space-4); margin-top: var(--space-4); }
 .booking-placeholder h3 { margin-bottom: var(--space-2); }
-/* Apply this class to the Healthie iframe when the approved embed is added.
-   Verify its height with the real booking flow rather than clipping it. */
+/* Healthie manages the calendar content; allow scrolling for longer booking steps. */
 .booking-frame { display: block; width: 100%; min-height: 48rem; border: 0; }
 
 /* Coaching pathways stay open and readable rather than becoming service cards. */
