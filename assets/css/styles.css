@@ -84,6 +84,9 @@ nav a:hover { text-decoration: underline; }
 .split { display: grid; gap: var(--space-4); align-items: start; }
 .split h2 { margin-bottom: var(--space-3); }
 .placeholder { border-left: 2px solid #8d7656; padding: .75rem 1rem; margin-top: var(--space-4); font-size: .9rem; background: #efeadf; color: #584c3b; }
+/* A gentle square crop keeps the portrait responsive without altering the source photo. */
+.portrait { width: 100%; max-width: 30rem; }
+.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: center; border-radius: 3px; }
 .image-placeholder { max-width: 30rem; }
 .image-placeholder [role='img'] { display: grid; align-content: center; text-align: center; min-height: 20rem; padding: var(--space-4); background: var(--tint); border: 1px dashed #7c856f; font-family: var(--serif); font-size: 1.6rem; }
 .image-placeholder span, figcaption { font-family: var(--sans); font-size: .8rem; color: var(--muted); }
@@ -95,8 +98,7 @@ blockquote { font-family: var(--serif); font-size: 1.8rem; line-height: 1.4; mar
 .reflection > p:last-child { font-size: .8rem; }
 .booking-placeholder { background: var(--tint); border: 1px dashed #7c856f; padding: var(--space-4); margin-top: var(--space-4); }
 .booking-placeholder h3 { margin-bottom: var(--space-2); }
-/* Apply this class to the Healthie iframe when the approved embed is added.
-   Verify its height with the real booking flow rather than clipping it. */
+/* Healthie manages the calendar content; allow scrolling for longer booking steps. */
 .booking-frame { display: block; width: 100%; min-height: 48rem; border: 0; }
 
 /* Coaching pathways stay open and readable rather than becoming service cards. */
