@@ -84,6 +84,9 @@ nav a:hover { text-decoration: underline; }
 .split { display: grid; gap: var(--space-4); align-items: start; }
 .split h2 { margin-bottom: var(--space-3); }
 .placeholder { border-left: 2px solid #8d7656; padding: .75rem 1rem; margin-top: var(--space-4); font-size: .9rem; background: #efeadf; color: #584c3b; }
+/* A gentle square crop keeps the portrait responsive without altering the source photo. */
+.portrait { width: 100%; max-width: 30rem; }
+.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: center; border-radius: 3px; }
 .image-placeholder { max-width: 30rem; }
 .image-placeholder [role='img'] { display: grid; align-content: center; text-align: center; min-height: 20rem; padding: var(--space-4); background: var(--tint); border: 1px dashed #7c856f; font-family: var(--serif); font-size: 1.6rem; }
 .image-placeholder span, figcaption { font-family: var(--sans); font-size: .8rem; color: var(--muted); }
