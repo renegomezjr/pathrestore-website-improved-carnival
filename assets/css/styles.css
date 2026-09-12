@@ -93,6 +93,8 @@ nav a:hover { text-decoration: underline; }
 figcaption { padding-top: var(--space-2); }
 .reading, .booking { max-width: 49rem; }
 .reading h2, .booking h2 { margin-bottom: var(--space-3); }
+.resource-illustration { margin-bottom: var(--space-5); }
+.resource-illustration img { display: block; width: auto; max-width: min(100%, 32rem); height: auto; max-height: 35vh; max-height: 35svh; margin-inline: auto; border-radius: 3px; }
 .reflection { margin-block: var(--space-5); padding-block: var(--space-4); border-block: 1px solid var(--line); }
 blockquote { font-family: var(--serif); font-size: 1.8rem; line-height: 1.4; margin: 0 0 var(--space-3); }
 .reflection > p:last-child { font-size: .8rem; }
