@@ -32,7 +32,7 @@ Relative links allow previews on both GitHub Pages project paths and a future cu
 
 Edit the CSS `:root` variables to change colors, fonts, spacing, and the 72rem maximum page width. Georgia supplies warm serif headings; the device's system font handles body text. The palette uses ivory, olive, and muted green, with high-contrast text and a visible brown keyboard focus outline. The navigation remains visible and wraps on small screens. Two-column layouts start at 48rem.
 
-The homepage landscape is a decorative inline SVG, hidden from assistive technology; it requires no image download. Replace it with approved photography only if desired. For meaningful photos, supply descriptive alt text; purely decorative photos should have empty alt text.
+The approved Path Restore logo is the landscape-and-path SVG currently displayed in the homepage hero, without the tagline. Its reusable asset is `assets/images/path-restore-logo.svg`. Preserve its shapes, colors, proportions, and internal spacing; do not redraw or restyle it. The homepage retains the identical inline SVG and existing CSS framing to preserve its layout. The standalone asset contains the SVG artwork; the rounded hero framing is applied separately by the page CSS. The header’s “path restore” and “Mentoring and coaching” HTML text remain unchanged. When using the logo as a meaningful image, use alt text such as “Path Restore”; decorative repetitions may use empty alt text.
 
 ## Before publishing
 
