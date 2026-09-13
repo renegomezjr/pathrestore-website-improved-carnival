@@ -75,6 +75,10 @@ nav a:hover { text-decoration: underline; }
 .topics article { border-top: 1px solid var(--line); padding-top: var(--space-3); }
 .topic-number { display: block; color: var(--muted); font-size: .8rem; margin-bottom: var(--space-3); }
 .topics h3 { margin-bottom: var(--space-2); }
+.testimonials { border-bottom: 1px solid var(--line); }
+.testimonials h2 { font-size: 2rem; }
+.testimonials-grid { display: grid; gap: var(--space-4) var(--space-5); margin-top: var(--space-4); }
+.testimonials blockquote { font-size: 1.15rem; line-height: 1.7; margin: 0; }
 .closing { text-align: center; }
 .closing p:not(.eyebrow) { max-width: 39rem; margin: var(--space-3) auto; }
 .closing .button { margin-top: var(--space-4); }
@@ -135,6 +139,7 @@ blockquote { font-family: var(--serif); font-size: 1.8rem; line-height: 1.4; mar
   .footer-main { flex-direction: row; align-items: center; justify-content: space-between; }
 }
 @media (min-width: 68rem) {
+  .testimonials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .section { padding-block: var(--space-7); }
   nav { gap: 2rem; }
   .hero { gap: var(--space-6); }
