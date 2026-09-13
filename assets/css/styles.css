@@ -140,3 +140,25 @@ blockquote { font-family: var(--serif); font-size: 1.8rem; line-height: 1.4; mar
   .hero { gap: var(--space-6); }
 }
 /* No animation or smooth scrolling: reduced-motion preferences work by default. */
+
+/* Resources: a progressively enhanced library and quiet article layout. */
+[hidden] { display: none !important; }
+nav a[aria-current='location'] { text-decoration: underline; text-decoration-thickness: 2px; }
+.resource-library, .resource-article { padding-block: var(--space-5); }
+.resource-search { margin-bottom: var(--space-4); }
+.resource-search label { display: block; font-weight: 550; }
+.resource-search p { font-size: .88rem; margin-block: var(--space-1); }
+.resource-search input { width: 100%; min-height: 48px; padding: .75rem var(--space-2); border: 1px solid var(--line); border-radius: 3px; background: var(--white); color: var(--ink); font: inherit; }
+.resource-search input:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.search-status:not(:empty) { margin-bottom: var(--space-3); }
+.resource-entry { padding-block: var(--space-4); border-top: 1px solid var(--line); }
+.resource-entry .text-link { margin-top: var(--space-2); }
+.resource-entry-summary { max-width: 65ch; }
+.resource-article { max-width: 42rem; }
+.resource-article-heading { margin-bottom: var(--space-5); }
+.resource-article-heading .text-link { margin-bottom: var(--space-3); }
+.resource-article h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+.resource-article > section { margin-block: var(--space-5); }
+.resource-article h2 { font-size: clamp(1.65rem, 4vw, 2rem); }
+.resource-article h2.eyebrow { font-family: var(--sans); font-size: .73rem; font-weight: 650; letter-spacing: .14em; }
+.resource-article blockquote { margin-top: var(--space-3); }
