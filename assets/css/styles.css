@@ -117,6 +117,16 @@ blockquote { font-family: var(--serif); font-size: 1.8rem; line-height: 1.4; mar
 .coaching-steps li::marker { color: var(--accent); font-weight: 600; }
 .coaching-steps h3 { margin-bottom: var(--space-2); }
 
+/* Pricing uses the same quiet rules and type scale as the coaching pathways. */
+.pricing { border-top: 1px solid var(--line); scroll-margin-top: var(--space-4); }
+.pricing-options { display: grid; gap: var(--space-4); margin-block: var(--space-4); }
+.pricing-option { border-top: 1px solid var(--line); padding-top: var(--space-3); }
+.pricing-option h3 { margin-bottom: var(--space-2); }
+.pricing-option dl { margin: var(--space-3) 0 0; }
+.pricing-option dt { font-weight: 600; }
+.pricing-option dd { margin: var(--space-1) 0 0; color: var(--muted); }
+.pricing-option dd + dt { margin-top: var(--space-3); }
+
 /* 8. Footer */
 .site-footer { border-top: 1px solid var(--line); padding-block: var(--space-5) var(--space-3); }
 .footer-main { display: flex; flex-direction: column; gap: var(--space-3); padding-bottom: var(--space-4); }
@@ -139,6 +149,7 @@ blockquote { font-family: var(--serif); font-size: 1.8rem; line-height: 1.4; mar
   .footer-main { flex-direction: row; align-items: center; justify-content: space-between; }
 }
 @media (min-width: 68rem) {
+  .pricing-options { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .testimonials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .section { padding-block: var(--space-7); }
   nav { gap: 2rem; }
