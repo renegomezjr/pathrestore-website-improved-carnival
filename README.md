@@ -1,7 +1,7 @@
 # Path Restore
 
 A calm, mobile-first static website for a soul care and wellness coaching practice.
-Built with plain HTML and shared CSS. No framework, build step, JavaScript, external fonts, or paid services.
+Built with static HTML and shared CSS. The resource library uses a small JavaScript search enhancement.
 
 ## Preview locally
 
@@ -24,9 +24,19 @@ You can also open `index.html` directly, though a local server more closely rese
 - `assets/css/styles.css` — shared design tokens, typography, components, and responsive layouts, organized into numbered sections.
 - `.nojekyll` — tells GitHub Pages to serve this as a plain static site.
 
-Each page contains its own semantic header, navigation, main, and footer. This deliberate duplication keeps the website build-free. When editing navigation or footer content, update all five pages. `aria-current="page"` identifies the current navigation item.
+Each page contains its own semantic header, navigation, main, and footer. This deliberate duplication keeps the website build-free. When editing navigation or footer content, update every page, including resource articles. `aria-current="page"` identifies the current navigation item.
 
-Relative links allow previews on both GitHub Pages project paths and a future custom domain. No deployment, domain, DNS, or paid service has been configured.
+Relative links allow local previews. GitHub Pages serves the production site at `https://pathrestore.com`.
+
+## Article publishing and search discovery
+
+One-time setup when adopting this workflow: in **Settings → Pages → Build and deployment**, choose **GitHub Actions** as the source and confirm the custom domain is `pathrestore.com` with HTTPS enforced. Once the workflow is on `main`, run **Actions → Publish Path Restore → Run workflow** on `main` if it did not already deploy. The root IndexNow key is published with the site. No secrets or search-engine account changes are needed.
+
+- Publish approved articles as `resources/article-slug.html` and add a card with a relative link in `resources.html`. Keep drafts out of the public library. Use the exact production HTTPS canonical and an absolute HTTPS `og:image` URL on `pathrestore.com`.
+- In the article's JSON-LD, set `datePublished` when known and update `dateModified` for significant changes. Use `YYYY-MM-DD`. The publish workflow generates the live sitemap from the Resources links and copies those dates into `lastmod` where available. Google discovers URLs by crawling the sitemap already submitted in Search Console and advertised in `robots.txt`.
+- After Pages reports success, the workflow checks new and materially changed articles against the last successful run. It checks the live HTML, canonical, title, description, social image, sitemap and crawler access, then sends those URLs in one IndexNow submission to participating engines, including Bing. Shared navigation and footer edits alone do not trigger a submission.
+- Check **Actions → Publish Path Restore** for deployment, validation and IndexNow results. If live checks fail, read the reported URL and fix the metadata, image, or crawl rules. If IndexNow rejects the batch, check the live root key file and HTTP status. After a transient failure, run the workflow on current `main` again. The next successful run also picks up pending changes since the last successful submission.
+- Occasionally review sitemap processing and indexing coverage in Google Search Console and Bing Webmaster Tools. A successful notification confirms receipt. Search engines decide when to crawl and index each URL.
 
 ## Design system
 
