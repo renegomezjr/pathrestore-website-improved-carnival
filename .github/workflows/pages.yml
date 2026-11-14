@@ -19,7 +19,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
           persist-credentials: false
@@ -35,7 +35,7 @@ jobs:
           mkdir "$RUNNER_TEMP/site"
           git archive HEAD -- . ':(exclude).github' ':(exclude)scripts' | tar -x -C "$RUNNER_TEMP/site"
           python3 scripts/search_discovery.py sitemap "$RUNNER_TEMP/site"
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: ${{ runner.temp }}/site
           include-hidden-files: true
@@ -53,7 +53,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
 
   discover:
     needs: deploy
@@ -63,7 +63,7 @@ jobs:
       contents: read
       actions: read
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -75,9 +75,10 @@ jobs:
           previous=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/pages.yml/runs?branch=main&status=success&per_page=1" --jq '.workflow_runs[0].head_sha // empty')
           # Last successful branch-based deployment before this workflow was added.
           printf 'sha=%s\n' "${previous:-a54e5fd9db8fe94d437b9e397f65447128f341ce}" >> "$GITHUB_OUTPUT"
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.14'
+          check-latest: true
       - name: Validate live articles and submit to IndexNow
         env:
           PREVIOUS_SHA: ${{ steps.previous.outputs.sha }}
